@@ -2,6 +2,18 @@ li {
     list-style: none;
 }
 
+li:hover {
+    cursor: pointer;
+}
+
 li i {
     margin-right: 0.5rem;
+}
+
+.false {
+    color: red;
+}
+
+.true {
+    color: green;
 }
