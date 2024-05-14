@@ -21,6 +21,9 @@ createApp({
             } else
                 this.coseDaFare.push(this.altroDaAggiungere);
             this.altroDaAggiungere = "";
+        },
+        fatto(i) {
+            this.coseDaFare.splice(i, 1);
         }
     },
     mounted() {

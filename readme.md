@@ -3,3 +3,6 @@ M0
 
 M1
 -aggiunto un form,dove l'input inserito dall'utente viene inserito all'interno di "coseDaFare" e stampato in pagina,nel caso in cui il campo fosse vuoto non si aggiunge nulla all'array
+
+M2
+-aggiunto funzione al click sulla x di font awesome che mi rimuove l'elemento selezionato dall'array
