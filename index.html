@@ -17,7 +17,10 @@
         <ul>
             <li v-for="elemento in coseDaFare">{{elemento}}</li>
         </ul>
-
+        <form @submit.prevent="aggiungiAllaLista">
+            <input type="text" placeholder="Altro da fare?" v-model="altroDaAggiungere">
+            <button type="sumbit">Invia</button>
+        </form>
 
 
     </div>
