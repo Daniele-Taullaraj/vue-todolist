@@ -5,12 +5,6 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            // coseDaFare: [
-            //     "mangiare",
-            //     "bere",
-            //     "andare a lavoro",
-            //     "dormire"
-            // ],
             coseDaFare: [
                 { titolo: "Fare la spesa", done: false },
                 { titolo: "Studiare per l'esame", done: true },
@@ -22,6 +16,7 @@ createApp({
                 { titolo: "Guardare un film", done: false }
             ],
             altroDaAggiungere: "",
+            restanteDaFare: 0,
         }
     },
     methods: {
@@ -34,6 +29,7 @@ createApp({
                     done: false
                 });
             this.altroDaAggiungere = "";
+            this.restanteDaFare++;
         },
         checkClick(i) {
             // funzione per rimuovere dalla lista M2
@@ -41,8 +37,10 @@ createApp({
             // funzione per invertire il colore BONUS
             if (this.coseDaFare[i].done) {
                 this.coseDaFare[i].done = false;
+                this.restanteDaFare++;
             } else {
                 this.coseDaFare[i].done = true;
+                this.restanteDaFare--;
             }
         },
         controllaStato(i) {
@@ -51,10 +49,21 @@ createApp({
             } else {
                 return "true"
             }
+        },
+        simboloSiONo(i) {
+            if (!this.coseDaFare[i].done) {
+                return "fa-solid fa-x"
+            } else {
+                return "fa-solid fa-check"
+            }
         }
     },
     mounted() {
-
+        let self = this;
+        for (let i = 0; i < self.coseDaFare.length; i++) {
+            if (self.coseDaFare[i].done == false) {
+                self.restanteDaFare++;
+            }
+        }
     }
-
 }).mount('#app')
